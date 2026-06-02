@@ -1,6 +1,7 @@
 package com.example.alif.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import androidx.work.WorkManager
 import com.example.alif.data.local.AppDatabase
@@ -29,6 +30,12 @@ object DatabaseModule {
             AppDatabase::class.java,
             "alif_db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("alif_prefs", Context.MODE_PRIVATE)
     }
 
     @Provides

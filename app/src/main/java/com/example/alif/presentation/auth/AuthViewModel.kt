@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val userRepository: UserRepository,
-    private val authManager: AuthManager
+    val authManager: AuthManager
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<AuthState>(AuthState.Idle)
